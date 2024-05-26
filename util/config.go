@@ -18,6 +18,9 @@ type Config struct {
 	RefreshTokenDuration int
 	Environment          string
 	RedisAddress         string
+	EmailSenderName      string
+	EmailSenderAddress   string
+	EmailSenderPassword  string
 }
 
 func LoadConfig(path string) (*Config, error) {
@@ -47,6 +50,9 @@ func LoadConfig(path string) (*Config, error) {
 		RedisAddress:         os.Getenv("REDIS_ADDRESS"),
 		AccesTokenDuration:   AccesstokenDuration,
 		RefreshTokenDuration: RefreshTokenDuration,
+		EmailSenderName:      os.Getenv("EMAIL_SENDER_NAME"),
+		EmailSenderAddress:   os.Getenv("EMAIL_SENDER_ADDRESS"),
+		EmailSenderPassword:  os.Getenv("EMAIL_SENDER_PASSWORD"),
 	}, nil
 
 }

@@ -32,6 +32,7 @@ func (s *Server) CreateUser(ctx context.Context, req *pb.CreateUserRequest) (*pb
 			FullName:       req.GetFullName(),
 			Email:          req.GetEmail(),
 		},
+
 		AfterCreate: func(user db.User) error {
 			payloadDist := &worker.PayloadSendVerifyEmail{
 				Username: user.Username,
